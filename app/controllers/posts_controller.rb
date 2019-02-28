@@ -9,8 +9,13 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-
+    if @post.valid?
     redirect_to post_path(@post)
+    else
+      render :edit
+      # flash[:errors] = @posts.errors.full_messages
+      # redirect_to edit_post_path(@post)
+    end
   end
 
   private
