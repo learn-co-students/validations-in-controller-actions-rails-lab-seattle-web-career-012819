@@ -10,3 +10,13 @@
   </div>
   <%= submit_tag "Create Author" %>
 <% end %>
+
+<%= form_for() do |f| %>
+  <label>Student first name:</label><br>
+  <%= f.text_field :first_name %><br>
+
+  <label>Student last name:</label><br>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.submit %>
+<% end %>
