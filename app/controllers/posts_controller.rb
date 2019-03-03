@@ -8,9 +8,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-
-    redirect_to post_path(@post)
+    unless @post.update(post_params)
+      @post.errors[:category] << "Invalid category"
+      render :edit
+    else
+      redirect_to post_path(@post)
+    end
   end
 
   private
